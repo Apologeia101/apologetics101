@@ -1,3 +1,5 @@
+/* style.css (updated + tidied) */
+
 :root{
   --bg: #0b0d12;
   --panel: #111522;
@@ -16,6 +18,7 @@
 
 *{ box-sizing: border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
   font-family: var(--font);
@@ -31,6 +34,10 @@ body{
   margin: 0 auto;
 }
 
+.muted{ color: var(--muted); }
+.tight{ margin: 0; }
+
+/* Header */
 .site-header{
   position: sticky;
   top: 0;
@@ -61,11 +68,26 @@ body{
   padding: 8px 10px;
   border-radius: 10px;
 }
-.nav a:hover{ background: rgba(255,255,255,0.06); color: var(--text); }
-.nav a.active{ color: var(--text); background: rgba(122,167,255,0.16); }
-.nav a.disabled{ opacity: 0.5; cursor: not-allowed; }
 
+.nav a:hover{
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
+
+.nav a.active{
+  color: var(--text);
+  background: rgba(122,167,255,0.16);
+}
+
+.nav a.disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Typography + sections */
 .hero{ padding: 48px 0 28px; }
+
 .eyebrow{
   color: var(--muted);
   margin: 0 0 10px;
@@ -73,17 +95,23 @@ body{
   text-transform: uppercase;
   font-size: 12px;
 }
+
 h1{
   margin: 0 0 14px;
   font-size: clamp(30px, 4vw, 44px);
   line-height: 1.1;
 }
+
 .lead{
   color: var(--muted);
   font-size: 18px;
   max-width: 70ch;
 }
 
+.page-head{ padding: 36px 0 14px; }
+.page-head h1{ margin-bottom: 10px; }
+
+/* Buttons */
 .cta-row{
   display:flex;
   gap: 12px;
@@ -103,19 +131,23 @@ h1{
   font-weight: 650;
   border: 1px solid rgba(0,0,0,0.2);
 }
+
 .button:hover{ filter: brightness(1.04); }
+
 .button.secondary{
   color: var(--text);
   background: rgba(255,255,255,0.06);
   border: 1px solid var(--line);
 }
 
+/* Cards */
 .card-grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 16px;
 }
+
 .card{
   background: rgba(17,21,34,0.72);
   border: 1px solid var(--line);
@@ -123,19 +155,21 @@ h1{
   padding: 16px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.22);
 }
+
 .card h2{
   margin: 0 0 6px;
   font-size: 16px;
 }
+
 .card p{
   margin: 0;
   color: var(--muted);
   font-size: 14px;
 }
 
-.page-head{ padding: 36px 0 14px; }
-.page-head h1{ margin-bottom: 10px; }
+.card ul{ margin: 10px 0 0; }
 
+/* Callout */
 .callout{
   background: rgba(17,21,34,0.62);
   border: 1px solid var(--line);
@@ -143,11 +177,19 @@ h1{
   padding: 18px;
   margin: 14px 0 22px;
 }
+
 .callout h2{ margin: 0 0 10px; font-size: 16px; }
-.steps{ margin: 0; padding-left: 18px; color: var(--muted); }
+
+.steps{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
 .steps li{ margin: 8px 0; }
 .steps strong{ color: var(--text); }
 
+/* Grids + tiles */
 .grid{
   display:grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -166,11 +208,14 @@ h1{
   color: var(--text);
   position: relative;
   overflow:hidden;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
 }
+
 .tile:hover{
   border-color: rgba(122,167,255,0.42);
   transform: translateY(-1px);
 }
+
 .tile__num{
   display:inline-flex;
   align-items:center;
@@ -184,18 +229,34 @@ h1{
   font-weight: 700;
   margin-bottom: 10px;
 }
+
 .tile__title{
   display:block;
   font-weight: 750;
   font-size: 16px;
   margin-bottom: 6px;
 }
+
 .tile__hint{
   display:block;
   color: var(--muted);
   font-size: 13px;
 }
 
+/* Link tiles (topics page) */
+.tile--link{
+  text-decoration: none;
+  display: block;
+}
+
+/* Disable tiles that are placeholders (e.g. Coming soon) */
+.tile[aria-disabled="true"]{
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Footer */
 .footer{
   padding: 24px 0 40px;
   border-top: 1px solid var(--line);
@@ -240,6 +301,7 @@ h1{
   padding: 8px 10px;
   cursor:pointer;
 }
+
 .icon-button:hover{ background: rgba(255,255,255,0.10); }
 
 .modal__close{
@@ -252,6 +314,7 @@ h1{
   margin: 0 44px 8px 0;
   font-size: 22px;
 }
+
 .modal__subtitle{
   margin: 0 0 14px;
   color: var(--muted);
@@ -262,6 +325,7 @@ h1{
   gap: 8px;
   margin: 12px 0;
 }
+
 .tab{
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.05);
@@ -271,6 +335,7 @@ h1{
   cursor:pointer;
   font-weight: 650;
 }
+
 .tab.active{
   background: rgba(122,167,255,0.18);
   border-color: rgba(122,167,255,0.42);
@@ -280,6 +345,7 @@ h1{
   border-top: 1px solid var(--line);
   padding-top: 14px;
 }
+
 .tabpane{ display:none; }
 .tabpane.active{ display:block; }
 
@@ -287,6 +353,7 @@ h1{
   margin: 0 0 8px;
   font-size: 15px;
 }
+
 .tabpane p{
   margin: 0 0 12px;
   color: var(--muted);
@@ -298,6 +365,7 @@ h1{
   border-radius: var(--radius-sm);
   padding: 12px;
 }
+
 .response-label{
   margin: 0 0 8px;
   font-size: 12px;
@@ -305,14 +373,47 @@ h1{
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
 .response-quote{
   margin: 0;
   color: var(--text);
   font-weight: 650;
 }
 
-.small{ font-size: 12px; color: var(--muted); margin: 0; }
-.modal__footer{ border-top: 1px solid var(--line); padding-top: 12px; margin-top: 10px; }
+.small{
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.modal__footer{
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 10px;
+}
+
+/* Topic page helpers */
+.stack{
+  display: grid;
+  gap: 14px;
+  margin: 12px 0 40px;
+}
+
+.bullets{
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.bullets li{ margin: 8px 0; }
+
+.h3{
+  margin: 14px 0 6px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.qa__q{ margin: 12px 0 4px; }
+.qa__a{ margin: 0 0 10px; }
 
 /* Responsive */
 @media (max-width: 900px){
