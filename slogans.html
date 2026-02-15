@@ -1,0 +1,93 @@
+<!-- slogans.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slogans | Credible Faith</title>
+  <meta name="description" content="Quickfire slogans unpacked: the fallacy, and a calm way to respond." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Credible Faith</a>
+      <nav class="nav">
+        <a class="active" href="slogans.html">Slogans</a>
+        <a href="topics.html">Topics</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Slogans Unpacked</h1>
+      <p class="lead">
+        Click a slogan to see (1) the logic move it relies on, and (2) a calm way to respond.
+        The aim is clarity and charity—reasoned answers without heat.
+      </p>
+    </section>
+
+    <section id="howto" class="callout">
+      <h2>How to use this</h2>
+      <ol class="steps">
+        <li><strong>Define terms.</strong> Ask what key words mean in this context.</li>
+        <li><strong>Expose assumptions.</strong> What must be true for the slogan to work?</li>
+        <li><strong>Ask one good question.</strong> Keep it focused and calm.</li>
+        <li><strong>Respond with gentleness.</strong> Conviction and kindness belong together.</li>
+      </ol>
+    </section>
+
+    <!-- JS will inject slogan tiles into this grid -->
+    <section class="grid" aria-label="Slogan tiles" id="sloganGrid"></section>
+
+    <footer class="footer">
+      <p class="muted">More coming soon: additional slogans, key issues, and curated resources.</p>
+    </footer>
+  </main>
+
+  <!-- Modal / Lightbox -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__overlay" data-close="true"></div>
+
+    <div class="modal__panel" role="document">
+      <button class="icon-button modal__close" aria-label="Close" data-close="true">✕</button>
+
+      <h2 class="modal__title" id="modalTitle"></h2>
+      <p class="modal__subtitle" id="modalSubtitle"></p>
+
+      <div class="tabs" role="tablist" aria-label="Slogan details">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="fallacy" type="button">Fallacy</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="respond" type="button">How to respond</button>
+      </div>
+
+      <div class="tabpanes">
+        <div class="tabpane active" id="pane-fallacy" role="tabpanel">
+          <h3>What’s going on logically?</h3>
+          <p id="fallacyText"></p>
+        </div>
+
+        <div class="tabpane" id="pane-respond" role="tabpanel">
+          <h3>A calm way to respond</h3>
+          <p id="respondText"></p>
+          <div class="response-box">
+            <p class="response-label">Try saying:</p>
+            <p class="response-quote" id="respondQuote"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__footer">
+        <p class="small">
+          Tip: aim for clarity and charity. Ask questions that invite definition and reasoning.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Behaviour lives here -->
+  <script src="slogans.js" defer></script>
+</body>
+</html>
