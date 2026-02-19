@@ -425,3 +425,16 @@ h1{
 @media (max-width: 420px){
   .grid{ grid-template-columns: 1fr; }
 }
+
+/* reality.html helpers */
+.reality-meta{ margin-top: 14px; }
+
+kbd{
+  font-family: var(--font);
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
