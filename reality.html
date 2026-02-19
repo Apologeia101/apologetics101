@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How Reality Supports the Christian Worldview | Credible Faith</title>
-  <meta name="description" content="Ten features of our lived experience that align more naturally with the Christian worldview than with rival worldviews. (Adapted from a podcast episode.)" />
+  <meta name="description" content="Ten features of our lived experience that align more naturally with the Christian worldview than with rival worldviews. Click a point to explore it further." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -25,43 +25,81 @@
     <section class="page-head">
       <p class="eyebrow">Topics</p>
       <h1>How Reality Supports the Christian Worldview</h1>
-      <p class="lede">
-        This page is an adaptation of a podcast episode exploring how our lived experience is most in line with the
-        Christian worldview than any other worldview. Click a point to explore it further.
+      <p class="lead">
+        This is an adaptation of a podcast episode exploring how our lived experience is more in line with the Christian worldview
+        than any other worldview. Click a point below to explore it further.
       </p>
 
       <div class="reality-meta">
-        <a class="pill-link" href="https://open.spotify.com/episode/4el33RxFEGtfmGjJY3EXCQ" target="_blank" rel="noreferrer">Listen on Spotify</a>
+        <a class="button secondary" href="https://open.spotify.com/episode/4el33RxFEGtfmGjJY3EXCQ" target="_blank" rel="noreferrer">
+          Listen on Spotify
+        </a>
       </div>
     </section>
 
-    <section class="reality-grid" id="pointsGrid" aria-label="Ten points list">
-      <!-- Cards injected by JS -->
+    <!-- Reuse your existing .grid + .tile styling -->
+    <section class="grid" id="pointsGrid" aria-label="Ten points list">
+      <!-- Tiles injected by JS -->
     </section>
 
-    <section class="reality-note">
-      <p>
-        <strong>Note:</strong> This page summarises and adapts the episode’s key claims for easier reading and discussion.
-        It’s written as a cumulative case—each point adds weight.
+    <section class="callout">
+      <h2>How to use this page</h2>
+      <ol class="steps">
+        <li><strong>Start with point 1</strong> and move through slowly. It’s a cumulative case.</li>
+        <li><strong>Click each point</strong> to open the lightbox with short explanations and prompts.</li>
+        <li><strong>Stay calm and precise</strong>: the aim is clarity, not point-scoring.</li>
+      </ol>
+      <p class="small" style="margin-top:10px;">
+        Tip: press <kbd>Esc</kbd> to close the lightbox.
       </p>
-      <p class="muted">Tip: Press <kbd>Esc</kbd> to close a lightbox.</p>
     </section>
   </main>
 
-  <!-- Lightbox / Modal -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Point details">
-    <div class="modal" role="document" aria-labelledby="modalTitle">
-      <div class="modal-header">
-        <div class="modal-title">
-          <h2 id="modalTitle">Title</h2>
-          <p class="modal-sub" id="modalSub">Subtitle</p>
-          <div class="modal-chips" id="modalChips"></div>
-        </div>
-        <button class="modal-close" id="closeBtn" type="button">Close ✕</button>
+  <footer class="footer">
+    <div class="container">
+      <p class="tight">
+        © Credible Faith · Adapted from a podcast episode for reading and discussion.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal (reuses your existing modal CSS) -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__overlay" data-close></div>
+
+    <div class="modal__panel" role="document">
+      <button class="icon-button modal__close" type="button" id="closeBtn" aria-label="Close">✕</button>
+
+      <h2 class="modal__title" id="modalTitle">Title</h2>
+      <p class="modal__subtitle" id="modalSubtitle">Subtitle</p>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" type="button" data-tab="overview">Overview</button>
+        <button class="tab" type="button" data-tab="prompts">Discussion</button>
       </div>
 
-      <div class="modal-body" id="modalBody">
-        <!-- Content injected by JS -->
+      <div class="tabpanes">
+        <div class="tabpane active" id="pane-overview">
+          <div id="modalContent"></div>
+
+          <div class="response-box" style="margin-top:12px;">
+            <p class="response-label">Christian fit</p>
+            <p class="response-quote" id="modalFit"></p>
+          </div>
+        </div>
+
+        <div class="tabpane" id="pane-prompts">
+          <div class="response-box">
+            <p class="response-label">Questions to ask</p>
+            <ul class="bullets" id="modalPrompts"></ul>
+          </div>
+
+          <div class="modal__footer">
+            <p class="small">
+              Aim for fair questions that test explanations: necessity, chance, design; matter-only, mind-first; preference, obligation, etc.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,214 +109,186 @@
       {
         n: 1,
         title: "The universe had a beginning (creation)",
-        teaser: "A beginning calls for a cause beyond space, time, and matter.",
-        chips: ["Cosmology", "Causation", "Creation"],
-        body: `
-          <p>
-            One starting point is simple: the universe is not eternal—it began.
-            Any worldview has to explain why there is something rather than nothing, and how space, time, and matter came to be.
+        hint: "A beginning calls for a cause beyond space, time, and matter.",
+        overview: `
+          <p class="muted">
+            If the universe began, the cause cannot be part of the universe. The cause would need to transcend space, time, and matter.
           </p>
-          <h3>Why this matters</h3>
-          <ul>
-            <li>If the universe began, the cause can’t be <em>inside</em> the universe.</li>
-            <li>A cause of space-time-matter would have to transcend them (not made of them).</li>
-            <li>Creation suggests intentionality: “why this universe, and why now?”</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Theism naturally expects a transcendent, powerful, personal Creator—one who can choose to create.
-          </div>
-        `
+          <p class="muted">
+            This doesn’t yet prove Christianity, but it strongly supports theism over naturalism: the universe looks caused rather than self-existent.
+          </p>
+        `,
+        fit: "A transcendent, personal Creator can choose to create. That fits a beginning far better than ‘nothing’ producing something.",
+        prompts: [
+          "Why is there something rather than nothing?",
+          "If the universe began, what kind of cause could bring it into existence?",
+          "Is ‘nothing’ the sort of thing that can do anything?"
+        ]
       },
       {
         n: 2,
         title: "Fine-tuning of the universe",
-        teaser: "The universe appears ‘dialed in’ for life at multiple levels.",
-        chips: ["Fine-tuning", "Design", "Explanatory power"],
-        body: `
-          <p>
-            The universe is remarkably calibrated: from early conditions, to the fundamental constants, to features of our cosmic neighbourhood that allow stable life.
+        hint: "The universe appears ‘dialled in’ for life at multiple levels.",
+        overview: `
+          <p class="muted">
+            The universe is remarkably calibrated: early conditions, fundamental constants, and local features that allow stable life.
+            Competing explanations usually fall into: necessity, chance, or design.
           </p>
-          <h3>Three layers often highlighted</h3>
-          <ul>
-            <li><strong>Initial conditions:</strong> the universe starts out “just right,” not gradually evolving into that.</li>
-            <li><strong>Constants & laws:</strong> small changes to fundamental parameters make life impossible.</li>
-            <li><strong>Local conditions:</strong> a stable star and hospitable environment.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Fine-tuning looks more like intention than accident—more like a mind than blind chance.
-          </div>
-        `
+        `,
+        fit: "Fine-tuning looks more like intention than accident—more like mind than blind luck.",
+        prompts: [
+          "Which explanation is strongest here: necessity, chance, or design?",
+          "Does multiplying universes explain fine-tuning, or just postpone the question?",
+          "Why should we expect a life-permitting cosmos on naturalism?"
+        ]
       },
       {
         n: 3,
         title: "The origin of life",
-        teaser: "Life is chemistry plus instruction—information-rich like code.",
-        chips: ["Information", "DNA", "Origin of life"],
-        body: `
-          <p>
-            Life isn’t just complex chemistry; it’s chemistry plus <em>instruction</em>. DNA functions like an information system.
-            When you see coded instructions, you normally infer intelligence rather than random noise.
+        hint: "Life is chemistry plus instruction—information-rich like code.",
+        overview: `
+          <p class="muted">
+            DNA is not merely complex chemistry; it’s a functional information system.
+            In ordinary experience, large amounts of specified, functional information point to intelligence.
           </p>
-          <h3>Key idea</h3>
-          <ul>
-            <li><strong>Information is the headline:</strong> life requires specified, functional information.</li>
-            <li><strong>Chance struggles:</strong> random processes don’t naturally produce robust, goal-directed code.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> A rational Creator makes “information-bearing life” expected rather than surprising.
-          </div>
-        `
+        `,
+        fit: "A rational Creator makes information-bearing life expected rather than surprising.",
+        prompts: [
+          "What’s the best analogy for DNA: chemistry, code, or both?",
+          "How do we normally explain large amounts of functional information?",
+          "What would count as a plausible mind-free pathway to such information?"
+        ]
       },
       {
         n: 4,
         title: "The origin of new life forms",
-        teaser: "Explaining major biological novelty is harder than explaining small variations.",
-        chips: ["Novelty", "Innovation", "Biology"],
-        body: `
-          <p>
-            Even granting adaptation and variation, the question remains: where do fundamentally new biological structures and instructions come from?
-            Any worldview needs a believable account of “innovation,” not only “tweaks.”
+        hint: "Explaining major novelty is harder than explaining small variation.",
+        overview: `
+          <p class="muted">
+            Variation within kinds is common; the deeper question is where genuinely new biological structures and coordinated systems come from.
+            Innovation requires more than tiny tweaks—it often requires integrated changes.
           </p>
-          <h3>What’s being claimed</h3>
-          <ul>
-            <li>Small changes within kinds are common; large-scale novelty is the contested issue.</li>
-            <li>New structures often require coordinated changes, not isolated accidents.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Intelligence is a familiar cause of innovation—especially in systems that depend on information.
-          </div>
-        `
+        `,
+        fit: "Intelligence is a familiar cause of innovation, especially in information-dependent systems.",
+        prompts: [
+          "What’s the difference between adaptation and innovation?",
+          "What would count as evidence for (or against) a mind-like cause?",
+          "How do coordinated systems arise via undirected processes?"
+        ]
       },
       {
         n: 5,
         title: "Consciousness and our ability to think",
-        teaser: "Rational thought and first-person awareness aren’t easily reduced to matter.",
-        chips: ["Mind", "Reason", "Truth"],
-        body: `
-          <p>
+        hint: "Rational thought and first-person awareness aren’t easily reduced to matter.",
+        overview: `
+          <p class="muted">
             We experience first-person awareness, rational reflection, and genuine reasoning.
-            If humans are only accidental matter-in-motion, it’s difficult to justify why our thoughts track truth rather than merely survival.
+            If we are only matter-in-motion, it’s hard to justify why our thoughts track truth rather than mere survival.
           </p>
-          <h3>Why it matters</h3>
-          <ul>
-            <li><strong>Science presupposes minds:</strong> you need rational agents to interpret evidence.</li>
-            <li><strong>Truth-seeking:</strong> reasoning implies more than chemistry bubbling in a skull.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Humans made in God’s image helps explain why minds exist and why reason can reach truth.
-          </div>
-        `
+        `,
+        fit: "If humans are made in God’s image, mind and rationality aren’t accidents—they’re expected.",
+        prompts: [
+          "If evolution aims at survival, why trust it to deliver truth?",
+          "Are beliefs only brain events—or also evaluations of what is true?",
+          "Can ‘ought to reason’ be derived from molecules alone?"
+        ]
       },
       {
         n: 6,
         title: "The laws of logic",
-        teaser: "Logic seems universal, immaterial, and binding—like it’s grounded in mind.",
-        chips: ["Logic", "Universals", "Norms"],
-        body: `
-          <p>
-            Logical laws aren’t physical objects, yet we all rely on them. They don’t vary by geography, and they govern thinking everywhere.
+        hint: "Logic seems universal, immaterial, and binding.",
+        overview: `
+          <p class="muted">
+            Logical laws aren’t physical objects, yet we all rely on them. They don’t vary by geography.
+            They are normative: they tell us how we <em>should</em> think.
           </p>
-          <h3>Two observations</h3>
-          <ul>
-            <li><strong>Immaterial:</strong> you can’t weigh the law of non-contradiction.</li>
-            <li><strong>Normative:</strong> logic doesn’t just describe how we think—it prescribes how we <em>should</em> think.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Logic fits naturally if it reflects the consistent rationality of a supreme Mind.
-          </div>
-        `
+        `,
+        fit: "Logic fits naturally if it reflects the consistent rationality of a supreme Mind.",
+        prompts: [
+          "Are logical laws discovered or invented?",
+          "Why are the laws of logic binding rather than optional?",
+          "Can matter alone explain immaterial, universal norms?"
+        ]
       },
       {
         n: 7,
         title: "The laws of mathematics",
-        teaser: "It’s striking that mathematics describes the physical world so well.",
-        chips: ["Math", "Order", "Intelligibility"],
-        body: `
-          <p>
-            Mathematics isn’t made of atoms, yet it maps the physical universe with surprising precision.
-            Why does an abstract, immaterial system “fit” the world so well?
+        hint: "It’s striking that maths describes the physical world so well.",
+        overview: `
+          <p class="muted">
+            Mathematics isn’t made of atoms, yet it maps reality with surprising precision.
+            Why should an abstract system ‘fit’ the world—and why can our minds grasp it?
           </p>
-          <h3>What this suggests</h3>
-          <ul>
-            <li>The universe is structured and quantifiable—not chaos.</li>
-            <li>Our minds can “read” that structure using abstract tools like numbers and equations.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> A rational Creator provides a reason both for a rational cosmos and rational creatures.
-          </div>
-        `
+        `,
+        fit: "A rational Creator explains a rational cosmos and rational creatures who can read it.",
+        prompts: [
+          "Why is the universe mathematically describable at all?",
+          "Why does the mind-world ‘fit’ exist?",
+          "Is maths a human invention or a discovered structure?"
+        ]
       },
       {
         n: 8,
         title: "The moral law (and the reality of evil)",
-        teaser: "We treat some things as truly right/wrong—not merely preference.",
-        chips: ["Morality", "Human dignity", "Evil"],
-        body: `
-          <p>
-            People argue as though morality is more than opinion.
-            We don’t just dislike injustice—we condemn it as genuinely wrong.
-            But objective moral obligations are hard to ground in a purely material universe.
+        hint: "We treat some things as truly right/wrong—not mere preference.",
+        overview: `
+          <p class="muted">
+            People argue as though moral claims carry obligation. We don’t merely dislike injustice—we condemn it.
+            But objective moral ‘oughts’ are difficult to ground in a purely material universe.
           </p>
-          <h3>Key ideas</h3>
-          <ul>
-            <li><strong>Oughtness:</strong> moral claims carry obligation, not just description.</li>
-            <li><strong>Evil assumes a standard:</strong> calling something “evil” implies a real moral benchmark.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> Objective morality aligns with a good God whose nature is the standard, and humans bear His image.
-          </div>
-        `
+        `,
+        fit: "Objective morality aligns with a good God whose nature is the standard; humans bear His image and dignity.",
+        prompts: [
+          "If morality is only biology or society, why should anyone obey it?",
+          "Does moral outrage imply a real standard beyond preference?",
+          "What makes human dignity real rather than assigned?"
+        ]
       },
       {
         n: 9,
         title: "Old Testament prophecy",
-        teaser: "Fulfilment claims invite historical investigation and explanation.",
-        chips: ["Prophecy", "History", "Messiah"],
-        body: `
-          <p>
-            Christians claim some Old Testament passages anticipate themes and details fulfilled in Jesus.
-            At minimum, this invites serious historical investigation: dating, context, meaning, and fulfilment claims.
+        hint: "Fulfilment claims invite historical investigation and explanation.",
+        overview: `
+          <p class="muted">
+            Christians claim that some Old Testament passages anticipate themes and details fulfilled in Jesus.
+            The responsible approach is historical: context, dating, meaning, specificity, and rival interpretations.
           </p>
-          <h3>How to treat this well</h3>
-          <ul>
-            <li>Focus on passages specific enough to be testable.</li>
-            <li>Compare competing interpretations, not strawmen.</li>
-            <li>Ask what worldview best explains a coherent redemptive storyline.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> A God who acts in history makes prophecy coherent rather than absurd.
-          </div>
-        `
+        `,
+        fit: "A God who acts in history makes prophecy coherent rather than absurd.",
+        prompts: [
+          "Which prophecies are specific enough to test historically?",
+          "What are the best non-Christian explanations—and how strong are they?",
+          "Does the Bible’s storyline show coherent development or later invention?"
+        ]
       },
       {
         n: 10,
         title: "The unparalleled person of Jesus (and the resurrection)",
-        teaser: "Why did an executed preacher become history’s central figure?",
-        chips: ["Jesus", "Resurrection", "History"],
-        body: `
-          <p>
-            Even secular history admits Jesus’ outsized influence. The Christian claim is that this influence is not a fluke:
-            it follows from who He is and what happened—especially the resurrection.
+        hint: "Why did an executed preacher become history’s central figure?",
+        overview: `
+          <p class="muted">
+            Christianity rises or falls on what happened to Jesus. If He rose, the Christian worldview is not merely inspiring—it’s true.
+            The resurrection functions as the bridge from generic theism to specifically Christian theism.
           </p>
-          <h3>What’s being argued</h3>
-          <ul>
-            <li>The rise of Christianity is difficult to explain if Jesus stayed dead.</li>
-            <li>The resurrection claim functions as the bridge from generic theism to specifically Christian theism.</li>
-          </ul>
-          <div class="callout">
-            <strong>Christian fit:</strong> If Jesus rose, Christianity isn’t merely inspiring—it’s true—and it reframes every other point.
-          </div>
-        `
+        `,
+        fit: "If Jesus rose, it reframes every other point: creation, meaning, morality, and hope are anchored in reality.",
+        prompts: [
+          "What are the best historical arguments for and against the resurrection?",
+          "Which alternative explanation best fits the total evidence?",
+          "If the resurrection happened, what follows about God and reality?"
+        ]
       }
     ];
 
     const grid = document.getElementById("pointsGrid");
-    const backdrop = document.getElementById("modalBackdrop");
+    const modal = document.getElementById("modal");
     const closeBtn = document.getElementById("closeBtn");
     const modalTitle = document.getElementById("modalTitle");
-    const modalSub = document.getElementById("modalSub");
-    const modalBody = document.getElementById("modalBody");
-    const modalChips = document.getElementById("modalChips");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const modalContent = document.getElementById("modalContent");
+    const modalFit = document.getElementById("modalFit");
+    const modalPrompts = document.getElementById("modalPrompts");
+    const tabs = document.getElementById("tabs");
 
     function escapeHtml(str){
       return String(str)
@@ -289,15 +299,13 @@
         .replaceAll("'", "&#039;");
     }
 
-    function renderCards(){
+    function renderTiles(){
       grid.innerHTML = points.map(p => `
-        <article class="reality-card">
-          <button class="reality-card-btn" type="button" data-n="${p.n}" aria-label="Open point ${p.n}: ${escapeHtml(p.title)}">
-            <div class="reality-num">${p.n}</div>
-            <h2 class="reality-card-title">${escapeHtml(p.title)}</h2>
-            <p class="reality-card-teaser">${escapeHtml(p.teaser)}</p>
-          </button>
-        </article>
+        <button class="tile" type="button" data-n="${p.n}">
+          <span class="tile__num">${p.n}</span>
+          <span class="tile__title">${escapeHtml(p.title)}</span>
+          <span class="tile__hint">${escapeHtml(p.hint)}</span>
+        </button>
       `).join("");
     }
 
@@ -306,25 +314,39 @@
       if(!p) return;
 
       modalTitle.textContent = `${p.n}. ${p.title}`;
-      modalSub.textContent = p.teaser;
+      modalSubtitle.textContent = p.hint;
+      modalContent.innerHTML = p.overview;
+      modalFit.textContent = p.fit;
 
-      modalChips.innerHTML = (p.chips || [])
-        .map(c => `<span class="chip">${escapeHtml(c)}</span>`)
-        .join("");
+      modalPrompts.innerHTML = (p.prompts || []).map(q => `<li>${escapeHtml(q)}</li>`).join("");
 
-      modalBody.innerHTML = p.body;
+      // reset tabs
+      setActiveTab("overview");
 
-      backdrop.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
       closeBtn.focus();
     }
 
     function closeModal(){
-      backdrop.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
     }
 
-    renderCards();
+    function setActiveTab(which){
+      // tabs
+      tabs.querySelectorAll(".tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === which);
+      });
+      // panes
+      document.getElementById("pane-overview").classList.toggle("active", which === "overview");
+      document.getElementById("pane-prompts").classList.toggle("active", which === "prompts");
+    }
+
+    // events
+    renderTiles();
 
     grid.addEventListener("click", (e) => {
       const btn = e.target.closest("button[data-n]");
@@ -334,12 +356,18 @@
 
     closeBtn.addEventListener("click", closeModal);
 
-    backdrop.addEventListener("click", (e) => {
-      if(e.target === backdrop) closeModal();
+    modal.addEventListener("click", (e) => {
+      if (e.target.matches("[data-close]")) closeModal();
+    });
+
+    tabs.addEventListener("click", (e) => {
+      const btn = e.target.closest(".tab");
+      if(!btn) return;
+      setActiveTab(btn.dataset.tab);
     });
 
     window.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && backdrop.getAttribute("aria-hidden") === "false"){
+      if(e.key === "Escape" && modal.classList.contains("open")){
         closeModal();
       }
     });
