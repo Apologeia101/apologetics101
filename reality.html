@@ -1,0 +1,348 @@
+<!-- reality.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How Reality Supports the Christian Worldview | Credible Faith</title>
+  <meta name="description" content="Ten features of our lived experience that align more naturally with the Christian worldview than with rival worldviews. (Adapted from a podcast episode.)" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Credible Faith</a>
+      <nav class="nav">
+        <a href="slogans.html">Slogans</a>
+        <a class="active" href="topics.html">Topics</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <p class="eyebrow">Topics</p>
+      <h1>How Reality Supports the Christian Worldview</h1>
+      <p class="lede">
+        This page is an adaptation of a podcast episode exploring how our lived experience is most in line with the
+        Christian worldview than any other worldview. Click a point to explore it further.
+      </p>
+
+      <div class="reality-meta">
+        <a class="pill-link" href="https://open.spotify.com/episode/4el33RxFEGtfmGjJY3EXCQ" target="_blank" rel="noreferrer">Listen on Spotify</a>
+      </div>
+    </section>
+
+    <section class="reality-grid" id="pointsGrid" aria-label="Ten points list">
+      <!-- Cards injected by JS -->
+    </section>
+
+    <section class="reality-note">
+      <p>
+        <strong>Note:</strong> This page summarises and adapts the episode’s key claims for easier reading and discussion.
+        It’s written as a cumulative case—each point adds weight.
+      </p>
+      <p class="muted">Tip: Press <kbd>Esc</kbd> to close a lightbox.</p>
+    </section>
+  </main>
+
+  <!-- Lightbox / Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Point details">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h2 id="modalTitle">Title</h2>
+          <p class="modal-sub" id="modalSub">Subtitle</p>
+          <div class="modal-chips" id="modalChips"></div>
+        </div>
+        <button class="modal-close" id="closeBtn" type="button">Close ✕</button>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const points = [
+      {
+        n: 1,
+        title: "The universe had a beginning (creation)",
+        teaser: "A beginning calls for a cause beyond space, time, and matter.",
+        chips: ["Cosmology", "Causation", "Creation"],
+        body: `
+          <p>
+            One starting point is simple: the universe is not eternal—it began.
+            Any worldview has to explain why there is something rather than nothing, and how space, time, and matter came to be.
+          </p>
+          <h3>Why this matters</h3>
+          <ul>
+            <li>If the universe began, the cause can’t be <em>inside</em> the universe.</li>
+            <li>A cause of space-time-matter would have to transcend them (not made of them).</li>
+            <li>Creation suggests intentionality: “why this universe, and why now?”</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Theism naturally expects a transcendent, powerful, personal Creator—one who can choose to create.
+          </div>
+        `
+      },
+      {
+        n: 2,
+        title: "Fine-tuning of the universe",
+        teaser: "The universe appears ‘dialed in’ for life at multiple levels.",
+        chips: ["Fine-tuning", "Design", "Explanatory power"],
+        body: `
+          <p>
+            The universe is remarkably calibrated: from early conditions, to the fundamental constants, to features of our cosmic neighbourhood that allow stable life.
+          </p>
+          <h3>Three layers often highlighted</h3>
+          <ul>
+            <li><strong>Initial conditions:</strong> the universe starts out “just right,” not gradually evolving into that.</li>
+            <li><strong>Constants & laws:</strong> small changes to fundamental parameters make life impossible.</li>
+            <li><strong>Local conditions:</strong> a stable star and hospitable environment.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Fine-tuning looks more like intention than accident—more like a mind than blind chance.
+          </div>
+        `
+      },
+      {
+        n: 3,
+        title: "The origin of life",
+        teaser: "Life is chemistry plus instruction—information-rich like code.",
+        chips: ["Information", "DNA", "Origin of life"],
+        body: `
+          <p>
+            Life isn’t just complex chemistry; it’s chemistry plus <em>instruction</em>. DNA functions like an information system.
+            When you see coded instructions, you normally infer intelligence rather than random noise.
+          </p>
+          <h3>Key idea</h3>
+          <ul>
+            <li><strong>Information is the headline:</strong> life requires specified, functional information.</li>
+            <li><strong>Chance struggles:</strong> random processes don’t naturally produce robust, goal-directed code.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> A rational Creator makes “information-bearing life” expected rather than surprising.
+          </div>
+        `
+      },
+      {
+        n: 4,
+        title: "The origin of new life forms",
+        teaser: "Explaining major biological novelty is harder than explaining small variations.",
+        chips: ["Novelty", "Innovation", "Biology"],
+        body: `
+          <p>
+            Even granting adaptation and variation, the question remains: where do fundamentally new biological structures and instructions come from?
+            Any worldview needs a believable account of “innovation,” not only “tweaks.”
+          </p>
+          <h3>What’s being claimed</h3>
+          <ul>
+            <li>Small changes within kinds are common; large-scale novelty is the contested issue.</li>
+            <li>New structures often require coordinated changes, not isolated accidents.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Intelligence is a familiar cause of innovation—especially in systems that depend on information.
+          </div>
+        `
+      },
+      {
+        n: 5,
+        title: "Consciousness and our ability to think",
+        teaser: "Rational thought and first-person awareness aren’t easily reduced to matter.",
+        chips: ["Mind", "Reason", "Truth"],
+        body: `
+          <p>
+            We experience first-person awareness, rational reflection, and genuine reasoning.
+            If humans are only accidental matter-in-motion, it’s difficult to justify why our thoughts track truth rather than merely survival.
+          </p>
+          <h3>Why it matters</h3>
+          <ul>
+            <li><strong>Science presupposes minds:</strong> you need rational agents to interpret evidence.</li>
+            <li><strong>Truth-seeking:</strong> reasoning implies more than chemistry bubbling in a skull.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Humans made in God’s image helps explain why minds exist and why reason can reach truth.
+          </div>
+        `
+      },
+      {
+        n: 6,
+        title: "The laws of logic",
+        teaser: "Logic seems universal, immaterial, and binding—like it’s grounded in mind.",
+        chips: ["Logic", "Universals", "Norms"],
+        body: `
+          <p>
+            Logical laws aren’t physical objects, yet we all rely on them. They don’t vary by geography, and they govern thinking everywhere.
+          </p>
+          <h3>Two observations</h3>
+          <ul>
+            <li><strong>Immaterial:</strong> you can’t weigh the law of non-contradiction.</li>
+            <li><strong>Normative:</strong> logic doesn’t just describe how we think—it prescribes how we <em>should</em> think.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Logic fits naturally if it reflects the consistent rationality of a supreme Mind.
+          </div>
+        `
+      },
+      {
+        n: 7,
+        title: "The laws of mathematics",
+        teaser: "It’s striking that mathematics describes the physical world so well.",
+        chips: ["Math", "Order", "Intelligibility"],
+        body: `
+          <p>
+            Mathematics isn’t made of atoms, yet it maps the physical universe with surprising precision.
+            Why does an abstract, immaterial system “fit” the world so well?
+          </p>
+          <h3>What this suggests</h3>
+          <ul>
+            <li>The universe is structured and quantifiable—not chaos.</li>
+            <li>Our minds can “read” that structure using abstract tools like numbers and equations.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> A rational Creator provides a reason both for a rational cosmos and rational creatures.
+          </div>
+        `
+      },
+      {
+        n: 8,
+        title: "The moral law (and the reality of evil)",
+        teaser: "We treat some things as truly right/wrong—not merely preference.",
+        chips: ["Morality", "Human dignity", "Evil"],
+        body: `
+          <p>
+            People argue as though morality is more than opinion.
+            We don’t just dislike injustice—we condemn it as genuinely wrong.
+            But objective moral obligations are hard to ground in a purely material universe.
+          </p>
+          <h3>Key ideas</h3>
+          <ul>
+            <li><strong>Oughtness:</strong> moral claims carry obligation, not just description.</li>
+            <li><strong>Evil assumes a standard:</strong> calling something “evil” implies a real moral benchmark.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> Objective morality aligns with a good God whose nature is the standard, and humans bear His image.
+          </div>
+        `
+      },
+      {
+        n: 9,
+        title: "Old Testament prophecy",
+        teaser: "Fulfilment claims invite historical investigation and explanation.",
+        chips: ["Prophecy", "History", "Messiah"],
+        body: `
+          <p>
+            Christians claim some Old Testament passages anticipate themes and details fulfilled in Jesus.
+            At minimum, this invites serious historical investigation: dating, context, meaning, and fulfilment claims.
+          </p>
+          <h3>How to treat this well</h3>
+          <ul>
+            <li>Focus on passages specific enough to be testable.</li>
+            <li>Compare competing interpretations, not strawmen.</li>
+            <li>Ask what worldview best explains a coherent redemptive storyline.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> A God who acts in history makes prophecy coherent rather than absurd.
+          </div>
+        `
+      },
+      {
+        n: 10,
+        title: "The unparalleled person of Jesus (and the resurrection)",
+        teaser: "Why did an executed preacher become history’s central figure?",
+        chips: ["Jesus", "Resurrection", "History"],
+        body: `
+          <p>
+            Even secular history admits Jesus’ outsized influence. The Christian claim is that this influence is not a fluke:
+            it follows from who He is and what happened—especially the resurrection.
+          </p>
+          <h3>What’s being argued</h3>
+          <ul>
+            <li>The rise of Christianity is difficult to explain if Jesus stayed dead.</li>
+            <li>The resurrection claim functions as the bridge from generic theism to specifically Christian theism.</li>
+          </ul>
+          <div class="callout">
+            <strong>Christian fit:</strong> If Jesus rose, Christianity isn’t merely inspiring—it’s true—and it reframes every other point.
+          </div>
+        `
+      }
+    ];
+
+    const grid = document.getElementById("pointsGrid");
+    const backdrop = document.getElementById("modalBackdrop");
+    const closeBtn = document.getElementById("closeBtn");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSub = document.getElementById("modalSub");
+    const modalBody = document.getElementById("modalBody");
+    const modalChips = document.getElementById("modalChips");
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderCards(){
+      grid.innerHTML = points.map(p => `
+        <article class="reality-card">
+          <button class="reality-card-btn" type="button" data-n="${p.n}" aria-label="Open point ${p.n}: ${escapeHtml(p.title)}">
+            <div class="reality-num">${p.n}</div>
+            <h2 class="reality-card-title">${escapeHtml(p.title)}</h2>
+            <p class="reality-card-teaser">${escapeHtml(p.teaser)}</p>
+          </button>
+        </article>
+      `).join("");
+    }
+
+    function openModal(n){
+      const p = points.find(x => x.n === n);
+      if(!p) return;
+
+      modalTitle.textContent = `${p.n}. ${p.title}`;
+      modalSub.textContent = p.teaser;
+
+      modalChips.innerHTML = (p.chips || [])
+        .map(c => `<span class="chip">${escapeHtml(c)}</span>`)
+        .join("");
+
+      modalBody.innerHTML = p.body;
+
+      backdrop.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeModal(){
+      backdrop.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    renderCards();
+
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-n]");
+      if(!btn) return;
+      openModal(Number(btn.dataset.n));
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+
+    backdrop.addEventListener("click", (e) => {
+      if(e.target === backdrop) closeModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && backdrop.getAttribute("aria-hidden") === "false"){
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
